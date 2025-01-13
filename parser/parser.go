@@ -19,6 +19,14 @@ func ParseCommands(command string, args []string, store *store.Store) string {
 		return cmd.Get(args[0], store)
 	case "DELETE":
 		return cmd.Delete(args[0], store)
+	case "INCR":
+		return cmd.Incr(args[0], store)
+	case "DECR":
+		return cmd.Decr(args[0], store)
+	case "INCRBY":
+		return cmd.IncrBy(args[0], args[1], store)
+	case "DECRBY":
+		return cmd.DecrBy(args[0], args[1], store)
 	default:
 		return "ERR: Unknown command"
 	}

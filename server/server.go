@@ -28,12 +28,21 @@ func HandleConnection(conn net.Conn, store *store.Store) {
 
 	scanner := bufio.NewScanner(conn)
 
-	for scanner.Scan() {
+	for {
+		// Display the prompt to the user
+		fmt.Fprint(conn, "nimbusdb > ")
+		// Read the user's input
+		if !scanner.Scan() {
+			// If scanning fails (e.g., client disconnects or sends EOF), break out of the loop
+			break
+		}
+
 		input := scanner.Text()
 		parts := strings.Split(input, " ")
 
 		if len(parts) < 2 {
-			fmt.Println("Invalid Command")
+			// fmt.Println("Invalid Command")
+			fmt.Fprintln(conn, "Invalid Command")
 			continue
 		}
 
@@ -45,4 +54,8 @@ func HandleConnection(conn net.Conn, store *store.Store) {
 		fmt.Fprintln(conn, response)
 	}
 
+	// Handle any errors during scanning
+	if err := scanner.Err(); err != nil {
+		fmt.Fprintln(conn, "Error reading input:", err)
+	}
 }

@@ -18,16 +18,16 @@ func (s *Store) Set(key string, value string) string {
 }
 
 func (s *Store) Get(key string) string {
-	val, exists := s.data[key]
-	if exists {
+	val, ok := s.data[key]
+	if ok {
 		return val
 	}
 	return "ERR, Invalid Key"
 }
 
 func (s *Store) Delete(key string) string {
-	val, exists := s.data[key]
-	if exists {
+	val, ok := s.data[key]
+	if ok {
 		delete(s.data, key)
 		return val + " Deleted"
 	}

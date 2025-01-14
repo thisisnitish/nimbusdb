@@ -5,7 +5,7 @@ of Redis and its design. It provides various set of commands similar to Redis al
 various data structures and more.
 
 ## Features
-- **Key-Value Store**: Supports setting, getting and deleting of keys.
+- **Key-Value Store**: Supports commands like  `SET`, `GET`, `DELETE`, `INCR`, `INCRBY` etc.
 
 
 ## Commands

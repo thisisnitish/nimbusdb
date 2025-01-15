@@ -3,11 +3,14 @@ package store
 // TODO: Change it to sync map -> concurrent map
 type Store struct {
 	data map[string]string
+	// list map[string][]string
+	List map[string][]string
 }
 
 func NewStore() *Store {
 	return &Store{
 		data: make(map[string]string),
+		List: make(map[string][]string),
 	}
 }
 

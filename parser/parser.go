@@ -27,6 +27,18 @@ func ParseCommands(command string, args []string, store *store.Store) string {
 		return cmd.IncrBy(args[0], args[1], store)
 	case "DECRBY":
 		return cmd.DecrBy(args[0], args[1], store)
+	case "LPUSH":
+		return cmd.LPush(args[0], args[1], store)
+	case "RPUSH":
+		return cmd.RPush(args[0], args[1], store)
+	case "LPOP":
+		return cmd.LPop(args[0], store)
+	case "RPOP":
+		return cmd.RPop(args[0], store)
+	case "LINDEX":
+		return cmd.LIndex(args[0], args[1], store)
+	case "LLEN":
+		return cmd.LLen(args[0], store)
 	default:
 		return "ERR: Unknown command"
 	}

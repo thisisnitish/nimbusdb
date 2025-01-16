@@ -39,6 +39,14 @@ func ParseCommands(command string, args []string, store *store.Store) string {
 		return cmd.LIndex(args[0], args[1], store)
 	case "LLEN":
 		return cmd.LLen(args[0], store)
+	case "SADD":
+		return cmd.SAdd(args[0], args[1], store)
+	case "SREM":
+		return cmd.SRem(args[0], args[1], store)
+	case "SMEMBERS":
+		return cmd.SMembers(args[0], store)
+	case "SISMEMBER":
+		return cmd.SIsMember(args[0], args[1], store)
 	default:
 		return "ERR: Unknown command"
 	}

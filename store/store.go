@@ -5,12 +5,14 @@ type Store struct {
 	data map[string]string
 	// list map[string][]string
 	List map[string][]string
+	Sets map[string]map[string]bool
 }
 
 func NewStore() *Store {
 	return &Store{
 		data: make(map[string]string),
 		List: make(map[string][]string),
+		Sets: make(map[string]map[string]bool),
 	}
 }
 

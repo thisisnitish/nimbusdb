@@ -17,7 +17,7 @@ func ParseCommands(command string, args []string, store *store.Store) string {
 		return cmd.Set(args[0], strings.Join(args[1:], " "), store)
 	case "GET":
 		return cmd.Get(args[0], store)
-	case "DELETE":
+	case "DEL":
 		return cmd.Delete(args[0], store)
 	case "INCR":
 		return cmd.Incr(args[0], store)

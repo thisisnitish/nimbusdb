@@ -2,13 +2,14 @@ package parser
 
 import (
 	"fmt"
+	"net"
 	"strings"
 
 	"github.com/thisisnitish/nimbusdb/cmd"
 	"github.com/thisisnitish/nimbusdb/store"
 )
 
-func ParseCommands(command string, args []string, store *store.Store) string {
+func ParseCommands(command string, args []string, store *store.Store, conn net.Conn) string {
 	fmt.Println("cmd: ", command, "agrs: ", args)
 
 	command = strings.ToUpper(command)
@@ -47,6 +48,10 @@ func ParseCommands(command string, args []string, store *store.Store) string {
 		return cmd.SMembers(args[0], store)
 	case "SISMEMBER":
 		return cmd.SIsMember(args[0], args[1], store)
+	case "SUBSCRIBE":
+		return cmd.Subscribe(args[0], conn, store)
+	case "PUBLISH":
+		return cmd.Publish(args[0], strings.Join(args[1:], " "), store)
 	default:
 		return "ERR: Unknown command"
 	}

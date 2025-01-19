@@ -49,7 +49,7 @@ func HandleConnection(conn net.Conn, store *store.Store) {
 		command := parts[0]
 		args := parts[1:]
 
-		response := parser.ParseCommands(command, args, store)
+		response := parser.ParseCommands(command, args, store, conn)
 
 		fmt.Fprintln(conn, response)
 	}

@@ -1,18 +1,26 @@
 package store
 
+import "net"
+
 // TODO: Change it to sync map -> concurrent map
 type Store struct {
 	data map[string]string
 	// list map[string][]string
-	List map[string][]string
-	Sets map[string]map[string]bool
+	List        map[string][]string
+	Sets        map[string]map[string]bool
+	Subscribers map[string][]Client // key are channel names and value are client struct
+}
+
+type Client struct {
+	Conn net.Conn
 }
 
 func NewStore() *Store {
 	return &Store{
-		data: make(map[string]string),
-		List: make(map[string][]string),
-		Sets: make(map[string]map[string]bool),
+		data:        make(map[string]string),
+		List:        make(map[string][]string),
+		Sets:        make(map[string]map[string]bool),
+		Subscribers: make(map[string][]Client),
 	}
 }
 

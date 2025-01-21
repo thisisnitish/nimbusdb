@@ -39,7 +39,9 @@ john
 nimbusdb > DEL name
 john Deleted
 ```
-💡 **Tip:** It works with smallcase `set`, `get`, `del` commands also.
+> [!NOTE]
+>
+> It works with smallcase `set`, `get`, `del` commands also.
 
 ## Data Types
 Nimbus db support few important datatypes.

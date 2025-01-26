@@ -10,6 +10,8 @@ import (
 	"github.com/thisisnitish/nimbusdb/store"
 )
 
+/*
+// TODO: Remove this function
 func AppendToAOF(filename string, command string) error {
 	file, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
@@ -24,6 +26,7 @@ func AppendToAOF(filename string, command string) error {
 
 	return nil
 }
+*/
 
 func ReplayAOF(filename string, store *store.Store) error {
 	file, err := os.Open(filename)
@@ -50,9 +53,9 @@ func ReplayAOF(filename string, store *store.Store) error {
 		}
 		command := parts[0]
 		args := parts[1:]
-		fmt.Println("command: ", command, args)
+		// fmt.Println("command: ", command, args)
 		// TODO: Handle conn parameter here
-		parser.ParseCommands(command, args, store, nil)
+		parser.ParseCommands(command, args, store, nil, false)
 	}
 
 	return scanner.Err()

@@ -9,25 +9,25 @@ import (
 	"github.com/thisisnitish/nimbusdb/store"
 )
 
-func ParseCommands(command string, args []string, store *store.Store, conn net.Conn) string {
+func ParseCommands(command string, args []string, store *store.Store, conn net.Conn, writeToFile ...bool) string {
 	fmt.Println("cmd: ", command, "agrs: ", args)
 
 	command = strings.ToUpper(command)
 	switch command {
 	case "SET":
-		return cmd.Set(args[0], strings.Join(args[1:], " "), store)
+		return cmd.Set(args[0], strings.Join(args[1:], " "), store, writeToFile...)
 	case "GET":
-		return cmd.Get(args[0], store)
+		return cmd.Get(args[0], store, writeToFile...)
 	case "DEL":
-		return cmd.Delete(args[0], store)
+		return cmd.Delete(args[0], store, writeToFile...)
 	case "INCR":
-		return cmd.Incr(args[0], store)
+		return cmd.Incr(args[0], store, writeToFile...)
 	case "DECR":
-		return cmd.Decr(args[0], store)
+		return cmd.Decr(args[0], store, writeToFile...)
 	case "INCRBY":
-		return cmd.IncrBy(args[0], args[1], store)
+		return cmd.IncrBy(args[0], args[1], store, writeToFile...)
 	case "DECRBY":
-		return cmd.DecrBy(args[0], args[1], store)
+		return cmd.DecrBy(args[0], args[1], store, writeToFile...)
 	case "LPUSH":
 		return cmd.LPush(args[0], args[1], store)
 	case "RPUSH":

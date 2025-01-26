@@ -5,8 +5,10 @@ of Redis and its design. It provides various set of commands similar to Redis al
 various data structures and more.
 
 ## Core Features
-- **Key-Value Store**: Supports commands like  `SET`, `GET`, `DEL`, `INCR`, `INCRBY` etc.
+- **Key-Value Store** Supports commands like  `SET`, `GET`, `DEL`, `INCR`, `INCRBY` etc.
 - **Data type support** String, Numbers, Set, List.
+- **Pub/Sub support**
+
 
 
 ## Commands

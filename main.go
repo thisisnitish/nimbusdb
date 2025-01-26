@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/thisisnitish/nimbusdb/aof"
 	"github.com/thisisnitish/nimbusdb/server"
 	"github.com/thisisnitish/nimbusdb/store"
 )
@@ -13,6 +14,11 @@ func main() {
 	listener := server.CreateConnection()
 
 	store := store.NewStore()
+
+	err := aof.ReplayAOF("file.aof", store)
+	if err != nil {
+		fmt.Println("Error replaying AOF: ", err)
+	}
 
 	defer listener.Close()
 

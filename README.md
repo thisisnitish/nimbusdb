@@ -7,7 +7,7 @@ various data structures and more.
 ## Core Features
 - **Key-Value Store** Supports commands like  `SET`, `GET`, `DEL`, `INCR`, `INCRBY` etc.
 - **Data type support** String, Numbers, Set, List.
-- **Pub/Sub support**
+- **Pub/Sub support** For Publishers and Subscribers channels.
 
 
 

@@ -4,11 +4,18 @@ import (
 	"strconv"
 
 	"github.com/thisisnitish/nimbusdb/store"
+	"github.com/thisisnitish/nimbusdb/utils"
 )
 
-func RPush(key string, value string, store *store.Store) string {
+func RPush(key string, value string, store *store.Store, writeToFile ...bool) string {
 	if store.List[key] == nil {
 		store.List[key] = make([]string, 0)
+	}
+
+	if len(writeToFile) > 0 && writeToFile[0] {
+		command := "RPUSH " + key + " " + value
+		utils.AppendToAOF("file.aof", command)
+
 	}
 
 	store.List[key] = append(store.List[key], value)

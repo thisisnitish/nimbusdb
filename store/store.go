@@ -45,5 +45,5 @@ func (s *Store) Delete(key string) string {
 		return val + " Deleted"
 	}
 
-	return "ERR, Invaid key"
+	return "ERR, Invalid key"
 }

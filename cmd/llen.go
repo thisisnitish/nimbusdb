@@ -8,13 +8,13 @@ import (
 )
 
 func LLen(key string, store *store.Store, writeToFile ...bool) string {
-	if store.List[key] == nil {
-		return "0"
-	}
-
 	if len(writeToFile) > 0 && writeToFile[0] {
 		command := "LLEN " + key
 		utils.AppendToAOF("file.aof", command)
+	}
+
+	if store.List[key] == nil {
+		return "0"
 	}
 
 	return strconv.Itoa(len(store.List[key]))

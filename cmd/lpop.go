@@ -6,13 +6,13 @@ import (
 )
 
 func LPop(key string, store *store.Store, writeToFile ...bool) string {
-	if store.List[key] == nil {
-		return "List doesn't exists"
-	}
-
 	if len(writeToFile) > 0 && writeToFile[0] {
 		command := "LPOP " + key
 		utils.AppendToAOF("file.aof", command)
+	}
+
+	if store.List[key] == nil {
+		return "List doesn't exists"
 	}
 
 	value := store.List[key][0]

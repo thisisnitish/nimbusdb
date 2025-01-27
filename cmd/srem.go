@@ -1,8 +1,16 @@
 package cmd
 
-import "github.com/thisisnitish/nimbusdb/store"
+import (
+	"github.com/thisisnitish/nimbusdb/store"
+	"github.com/thisisnitish/nimbusdb/utils"
+)
 
-func SRem(key string, value string, store *store.Store) string {
+func SRem(key string, value string, store *store.Store, writeToFile ...bool) string {
+	if len(writeToFile) > 0 && writeToFile[0] {
+		command := "SREM " + key + " " + value
+		utils.AppendToAOF("file.aof", command)
+	}
+
 	if store.Sets[key] == nil {
 		return "0"
 	}

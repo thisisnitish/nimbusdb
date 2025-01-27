@@ -41,13 +41,13 @@ func ParseCommands(command string, args []string, store *store.Store, conn net.C
 	case "LLEN":
 		return cmd.LLen(args[0], store, writeToFile...)
 	case "SADD":
-		return cmd.SAdd(args[0], args[1], store)
+		return cmd.SAdd(args[0], args[1], store, writeToFile...)
 	case "SREM":
-		return cmd.SRem(args[0], args[1], store)
+		return cmd.SRem(args[0], args[1], store, writeToFile...)
 	case "SMEMBERS":
-		return cmd.SMembers(args[0], store)
+		return cmd.SMembers(args[0], store, writeToFile...)
 	case "SISMEMBER":
-		return cmd.SIsMember(args[0], args[1], store)
+		return cmd.SIsMember(args[0], args[1], store, writeToFile...)
 	case "SUBSCRIBE":
 		return cmd.Subscribe(args[0], conn, store)
 	case "PUBLISH":

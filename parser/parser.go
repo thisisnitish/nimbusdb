@@ -49,9 +49,12 @@ func ParseCommands(command string, args []string, store *store.Store, conn net.C
 	case "SISMEMBER":
 		return cmd.SIsMember(args[0], args[1], store, writeToFile...)
 	case "SUBSCRIBE":
-		return cmd.Subscribe(args[0], conn, store, writeToFile...)
+		if conn != nil {
+			return cmd.Subscribe(args[0], conn, store)
+		}
+		return "Pub/Sub has no support for logs."
 	case "PUBLISH":
-		return cmd.Publish(args[0], strings.Join(args[1:], " "), store, writeToFile...)
+		return cmd.Publish(args[0], strings.Join(args[1:], " "), store)
 	default:
 		return "ERR: Unknown command"
 	}

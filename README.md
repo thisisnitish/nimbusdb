@@ -8,7 +8,7 @@ various data structures and more.
 - **Key-Value Store** Supports commands like  `SET`, `GET`, `DEL`, `INCR`, `INCRBY` etc.
 - **Data type support** String, Numbers, Set, List.
 - **Pub/Sub support** For Publishers and Subscribers channels.
-
+- **Disk Persistence** Supports Append Only Logs (AOF) for data recovery mechanism.
 
 
 ## Commands

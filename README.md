@@ -46,7 +46,7 @@ john Deleted
 > It works with smallcase `set`, `get`, `del` commands also.
 
 ## Data Types
-Nimbus db support few important datatypes.
+NimbusDB support few important datatypes.
 
 ## Strings
 Nimbus supports the string data type, and you can use the `SET` and `GET` commands mentioned above to work with strings.

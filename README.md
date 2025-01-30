@@ -4,15 +4,15 @@ NimbusDB is a key value store. The aim of this project is to understand the core
 of Redis and its design. It provides various set of commands similar to Redis along with 
 various data structures and more.
 
-## Core Features
+# Core Features
 - **Key-Value Store** Supports commands like  `SET`, `GET`, `DEL`, `INCR`, `INCRBY` etc.
 - **Data type support** String, Numbers, Set, List.
 - **Pub/Sub support** For Publishers and Subscribers channels.
 - **Disk Persistence** Supports Append Only Logs (AOF) for data recovery mechanism.
 
 
-## Commands
-### SET
+# Commands
+## SET
 Set the key in the store.
 **Syntax**: `SET key value`
 ```zsh
@@ -20,7 +20,7 @@ nimbusdb > SET name john
 OK
 ```
 
-### GET
+## GET
 Get the key from the store.
 **Syntax**: `GET key`
 ```zsh
@@ -30,7 +30,7 @@ nimbusdb > GET name
 john
 ```
 
-### DELETE
+## DELETE
 Delete key from the store.
 **Syntax**: `DEL key`
 ```zsh
@@ -48,10 +48,10 @@ john Deleted
 ## Data Types
 Nimbus db support few important datatypes.
 
-### Strings
+## Strings
 Nimbus supports the string data type, and you can use the `SET` and `GET` commands mentioned above to work with strings.
 
-### Numbers
+## Numbers
 Nimbus supports the number data type and also offers a separate set of commands designed to work with it. Below is a detailed explanation of these commands.
 
 ### INCR
@@ -96,12 +96,12 @@ nimbusdb > DECRBY count 4
 3
 ```
 
-### Lists
+## Lists
 List also offers it separate set of commands designed to work with it. Below are the detaled explanation of commands.
 
 ADD ALL COMMANDS WITH SYNTAX HERE...
 
-### Sets
+## Sets
 
 Set also offers it separate set of commands designed to work with it. Below are the detaled explanation of commands.
 

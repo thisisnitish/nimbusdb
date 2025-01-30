@@ -55,7 +55,7 @@ Nimbus supports the string data type, and you can use the `SET` and `GET` comman
 Nimbus supports the number data type and also offers a separate set of commands designed to work with it. Below is a detailed explanation of these commands.
 
 ### INCR
-Increase the value by 1
+Increase the value by 1.
 **Syntax**: `INCR key`
 ```zsh
 nimbusdb > SET count 1
@@ -65,7 +65,7 @@ nimbusdb > INCR count
 ```
 
 ### INCRBY
-Increase the value by some `x` value
+Increase the value by some `x` value.
 **Syntax**: `INCRBY key x`
 ```zsh
 nimbusdb > SET count 1
@@ -77,7 +77,7 @@ nimbusdb > INCRBY count 5
 ```
 
 ### DECR
-Decrease the value by 1
+Decrease the value by 1.
 **Syntax**: `DECR key`
 ```zsh
 nimbusdb > GET count
@@ -87,8 +87,8 @@ nimbusdb > DECR count
 ```
 
 ### DECRBY
-Decrease the value by some `x` value
-**Syntax**: `DECRBY key x`
+Decrease the value by some `x` value.
+**Syntax**: `DECRBY key value`
 ```zsh
 nimbusdb > GET count
 7
@@ -99,7 +99,59 @@ nimbusdb > DECRBY count 4
 ## Lists
 List also offers it separate set of commands designed to work with it. Below are the detaled explanation of commands.
 
-ADD ALL COMMANDS WITH SYNTAX HERE...
+### LPUSH
+Push the element to the left side of the list.
+**Syntax**: `LPUSH key value`
+```zsh
+nimbusdb > LPUSH cities delhi
+1
+nimbusdb > LPUSH cities jaipur
+2
+```
+
+### RPUSH
+Push the element to the right side of the list.
+**Syntax**: `RPUSH key value`
+```zsh
+nimbusdb > RPUSH cities lucknow
+3
+nimbusdb > RPUSH cities bhopal
+4
+```
+
+### LLEN
+Returns the length of the list.
+**Syntax**: `LLEN key`
+```zsh
+nimbusdb > LLEN cities
+4
+```
+
+### LPOP
+Removes the leftmost element from the list.
+**Syntax**: `LPOP key`
+```zsh
+nimbusdb > LPOP cities
+jaipur
+```
+
+### RPOP
+Removes the rightmost element from the list.
+**Syntax**: `RPOP key`
+```zsh
+nimbusdb > RPOP cities
+bhopal
+```
+
+### LINDEX
+Returns the element from the list at that index.
+**Syntax**: `LINDEX key value`
+```zsh
+nimbusdb > LINDEX cities 0
+delhi
+nimbusdb > LINDEX cities 1
+lucknow
+```
 
 ## Sets
 

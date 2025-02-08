@@ -10,6 +10,11 @@ various data structures and more.
 - **Pub/Sub support** For Publishers and Subscribers channels.
 - **Disk Persistence** Supports Append Only Logs (AOF) for data recovery mechanism.
 
+# Installation and How to use this
+- Fork the repo and clone it.
+- Open 2 terminals.
+- Run command `go run main.go` in one terminal and Run command `telnet localhost 6379` in other one.
+- Important Note: NimbusDB runs on port 6379.
 
 # Commands
 ## SET
@@ -234,7 +239,7 @@ nimbusdb > PUBLISHED
 ```
 
 # Pub/Sub support
-NimbusDB provides Pub/Sub support to deal with channels. For more info, checkout the command section [here](https://github.com/thisisnitish/nimbusdb/#pubsub-support-for-channels)
+NimbusDB provides Pub/Sub support to deal with channels. For more info, checkout the command section [here](https://github.com/thisisnitish/nimbusdb/#pubsub-support-for-channels).
 
 # Disk Persistence
 NimbusDB uses Append-Only Logs for disk persistence and data recovery. Each time a command is executed, NimbusDB records it in a file to

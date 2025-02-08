@@ -203,3 +203,32 @@ nimbusdb > SREM cities jaipur
 0
 ```
 
+## Pub/Sub support for Channels
+NimbubsDB also supports dealing with channels. It provides `SUBSCRIBE` and `PUBLISH` command to handle them.
+
+### SUBSCRIBE
+Subscribes to the channel.
+**Syntax**: `SUBSCRIBE channel_name`
+
+### PUBLISH
+Publishes to the channel.
+**Syntax**: `PUBLISH channel_name message`
+
+Below example is the simulation of `SUBSCRIBE` AND `PUBLISH` command.
+```zsh
+nimbusdb > SUBSCRIBE chat-1
+SUBSCRIBED
+nimbusdb > PUBLISH chat-1 hello
++hello
+nimbusdb > PUBLISHED
+nimbusdb > +hey, how are you
+```
+
+```zsh
+nimbusdb > SUBSCRIBE chat-1
+SUBSCRIBED
+nimbusdb > +hello
+nimbusdb > PUBLISH chat-1 hey, how are you
++hey, how are you
+nimbusdb > PUBLISHED
+```

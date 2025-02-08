@@ -155,9 +155,51 @@ lucknow
 
 ## Sets
 
-Set also offers it separate set of commands designed to work with it. Below are the detaled explanation of commands.
+Set also offers it separate set of commands designed to work with it. Below are the detailed explanation of commands.
 
-ADD ALL COMMANDS WITH SYNTAX HERE...
+### SADD
+Returns the 1 when insert successfull else 0.
+**Syntax**: `SADD key value`
+```zsh
+nimbusdb > SADD cities lucknow
+1
+nimbusdb > SADD cities jaipur
+1
+nimbusdb > SADD cities lucknow
+0
+```
 
-WORK IN PROGRESS...
+### SMEMBERS
+Returns the list of all elements present in the set.
+**Synatx**: `SMEMBERS key`
+```zsh
+nimbusdb > SMEMBERS cities
+[lucknow  jaipur]
+```
+
+### SISMEMBER
+Returns 1 if the element exists in the set else 0.
+**Syntax**: `SISMEMBER key value`
+```zsh
+nimbusdb > SADD cities delhi
+1
+nimbusdb > SMEMBERS cities
+[lucknow  jaipur  delhi]
+nimbusdb > SISMEMBER cities delhi
+1
+```
+
+### SREM
+Returns 1 if the element removed successfully else 0 if the element doesn't exists
+**Syntax**: `SREM key value`
+```zsh
+nimbusdb > SREM cities jaipur
+1
+nimbusdb > SMEMBERS cities
+[lucknow  delhi]
+nimbusdb > SISMEMBER cities jaipur
+0
+nimbusdb > SREM cities jaipur
+0
+```
 

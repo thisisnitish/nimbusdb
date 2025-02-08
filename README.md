@@ -232,3 +232,9 @@ nimbusdb > PUBLISH chat-1 hey, how are you
 +hey, how are you
 nimbusdb > PUBLISHED
 ```
+
+# Pub/Sub support
+NimbusDB provides Pub/Sub support to deal with channels. For more info, checkout the command section [here](https://github.com/thisisnitish/nimbusdb/#pubsub-support-for-channels)
+
+# Disk Persistence
+NimbusDB uses Append-Only Logs for disk persistence and data recovery. Each time a command is executed, NimbusDB records it in a file to ensure data is saved. When the database restarts, it loads the entire log file at once, allowing it to resume from the point it was last at without any data loss.

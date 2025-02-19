@@ -40,14 +40,19 @@ func HandleConnection(conn net.Conn, store *store.Store) {
 		input := scanner.Text()
 		parts := strings.Split(input, " ")
 
+		command := parts[0]
+		args := parts[1:]
+
+		if strings.ToUpper(command) == "PING" {
+			fmt.Fprintln(conn, "PONG")
+			continue
+		}
+
 		if len(parts) < 2 {
 			// fmt.Println("Invalid Command")
 			fmt.Fprintln(conn, "Invalid Command")
 			continue
 		}
-
-		command := parts[0]
-		args := parts[1:]
 
 		response := parser.ParseCommands(command, args, store, conn, true)
 

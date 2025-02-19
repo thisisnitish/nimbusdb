@@ -17,6 +17,14 @@ various data structures and more.
 - Important Note: NimbusDB runs on port 6379.
 
 # Commands
+## PING
+This is to check if you are connected with the server or not.
+**Syntax**: `PING`
+```zsh
+nimbusdb > PING
+PONG
+```
+
 ## SET
 Set the key in the store.
 **Syntax**: `SET key value`
